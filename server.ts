@@ -8,9 +8,9 @@ import cookieParser from "cookie-parser";
 import { OAuth2Client } from "google-auth-library";
 import { GoogleGenAI } from "@google/genai";
 import { createServer as createViteServer } from "vite";
-import { getPool } from "./src/db/index.ts";
-import { initDb } from "./src/db/init.ts";
-import { getPaymentProvider } from "./src/services/payment.ts";
+import { getPool } from "./src/db/index.js";
+import { initDb } from "./src/db/init.js";
+import { getPaymentProvider } from "./src/services/payment.js";
 
 const PORT = 3000;
 const JWT_SECRET = process.env.JWT_SECRET || "cardiovision_super_secret_jwt_key_2026";
