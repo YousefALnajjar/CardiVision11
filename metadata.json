@@ -1,0 +1,11 @@
+{
+  "name": "Remix: CardioVision",
+  "description": "منصة مشاريع التخرج والاستشارات الهندسية - CardioVision graduation engineering projects and consultation platform.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

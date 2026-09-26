@@ -1,0 +1,279 @@
+{
+  "users": [
+    {
+      "id": "admin-id",
+      "name": "المهندس يوسف النجار",
+      "email": "admin@cardiovision.com",
+      "passwordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+      "role": "admin",
+      "isVerified": true,
+      "createdAt": "2026-07-21T12:13:10.753Z"
+    },
+    {
+      "id": "user_22c140f7",
+      "name": "رولا الصمادي",
+      "email": "y99286549@gmail.com",
+      "passwordHash": "ab7fd359ef499852751c25164a5edad552363610d93fdd58090ffbfb49554ced",
+      "role": "student",
+      "isVerified": true,
+      "createdAt": "2026-07-21T12:25:41.202Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "biomedical",
+      "labelAr": "الهندسة الطبية",
+      "labelEn": "Biomedical Engineering"
+    },
+    {
+      "id": "software",
+      "labelAr": "هندسة البرمجيات والذكاء الاصطناعي",
+      "labelEn": "Software & AI Engineering"
+    },
+    {
+      "id": "electrical",
+      "labelAr": "الهندسة الكهربائية والتحكم",
+      "labelEn": "Electrical & Control"
+    },
+    {
+      "id": "communications",
+      "labelAr": "هندسة الاتصالات",
+      "labelEn": "Communications Engineering"
+    },
+    {
+      "id": "mechatronics",
+      "labelAr": "الميكانيك والميكاترونكس",
+      "labelEn": "Mechanical & Mechatronics"
+    }
+  ],
+  "projects": [
+    {
+      "id": "cardiovision-ecg",
+      "titleEn": "CardioVision: IoT Real-Time ECG Monitor",
+      "titleAr": "CardioVision: نظام مراقبة تخطيط القلب عبر إنترنت الأشياء",
+      "category": "biomedical",
+      "descriptionEn": "A wearable device using AD8232 and ESP32 to monitor ECG signals in real-time, sending telemetry to a web dashboard with AI arrhythmia detection.",
+      "descriptionAr": "جهاز قابل للارتداء يستخدم مستشعر AD8232 ومتحكم ESP32 لمراقبة إشارات تخطيط القلب لحظياً، وإرسال البيانات للوحة تحكم ويب مع كشف اضطراب ضربات القلب بالذكاء الاصطناعي.",
+      "detailsEn": "This project features fully functional hardware schematics and cloud platform integration. It records bio-potential electrical activities of the heart. The ESP32 micro-controller samples the analog signals at 250Hz, filters high-frequency noise, and streams the clean signal using WebSockets to our React-based dashboard. It's designed for cardiac patients requiring continuous monitoring.",
+      "detailsAr": "يتميز هذا المشروع بمخططات عتادية متكاملة مع منصة سحابية. يقوم بتسجيل النشاط الكهربائي الحيوي للقلب. يقوم معالج ESP32 بقراءة الإشارات التماثلية بتردد 250 هرتز، وتصفية الضجيج عالي التردد، وبث الإشارة النظيفة عبر WebSockets إلى لوحة تحكم React. مصمم لمرضى القلب الذين يحتاجون لمراقبة مستمرة.",
+      "featuresEn": [
+        "Real-time chart rendering at 60 FPS",
+        "Heart Rate Variability (HRV) calculations",
+        "Emergency SMS notification via Twilio API if heart anomalies occur",
+        "Low power sleep mode for long battery life"
+      ],
+      "featuresAr": [
+        "رسم بياني فوري فائق السرعة بمعدل 60 إطار في الثانية",
+        "حسابات تباين معدل ضربات القلب (HRV)",
+        "إرسال رسائل طوارئ SMS عبر Twilio في حال رصد اضطرابات",
+        "وضع توفير طاقة فائق لتمديد عمر البطارية"
+      ],
+      "componentsEn": [
+        "ESP32 Wi-Fi microcontroller",
+        "AD8232 ECG Sensor module",
+        "Disposable Bio-electrodes",
+        "LiPo Battery 3.7V & USB Charger circuit",
+        "Buzzer and OLED Display 1.3 inch"
+      ],
+      "componentsAr": [
+        "متحكم ESP32 يدعم الواي فاي",
+        "حساس قياس نبضات القلب AD8232",
+        "أقطاب حيوية لاصقة أحادية الاستخدام",
+        "بطارية LiPo بجهد 3.7 فولت مع دارة شحن",
+        "طنان صوتي وشاشة OLED قياس 1.3 بوصة"
+      ],
+      "softwareEn": [
+        "Arduino IDE",
+        "React.js",
+        "Node.js Express",
+        "Tailwind CSS",
+        "PlatformIO",
+        "MongoDB"
+      ],
+      "softwareAr": [
+        "بيئة Arduino IDE",
+        "إطار عمل React.js",
+        "خادم Node.js Express",
+        "مكتبة Tailwind CSS",
+        "منصة PlatformIO",
+        "قاعدة بيانات MongoDB"
+      ],
+      "diagramsEn": [
+        "ESP32 AD8232 pins: GND->GND, 3V3->3V3, OUTPUT->VP, LO+->GPIO15, LO-->GPIO14",
+        "OLED pins: SDA->GPIO21, SCL->GPIO22, VCC->3V3, GND->GND"
+      ],
+      "diagramsAr": [
+        "توصيل ESP32 مع AD8232: الأرضي->الأرضي، التغذية 3.3V->3.3V، المخرج->منفذ VP، قطب LO+->GPIO15، قطب LO-->GPIO14",
+        "توصيل شاشة OLED: خط البيانات SDA->GPIO21، خط الساعة SCL->GPIO22، التغذية->3.3V، الأرضي->الأرضي"
+      ],
+      "outputsEn": [
+        "Complete PCB schematic (EasyEDA)",
+        "Full C++ firmware",
+        "Full React Web Dashboard source code",
+        "Project 3D printable case files",
+        "Complete 80-page scientific report in PDF"
+      ],
+      "outputsAr": [
+        "مخطط PCB كامل (برنامج EasyEDA)",
+        "الكود البرمجي الكامل للمتحكم (C++)",
+        "كود لوحة تحكم الويب بالكامل (React)",
+        "ملفات تصميم الغلاف الخارجي ثلاثي الأبعاد STL",
+        "تقرير علمي متكامل مكون من 80 صفحة بصيغة PDF"
+      ],
+      "implementationEn": [
+        "Step 1: Wire the components on a breadboard according to the circuit diagram.",
+        "Step 2: Install ESP32 board manager in Arduino IDE and upload the provided C++ firmware.",
+        "Step 3: Host the Node.js WebSocket backend and configure connection tokens."
+      ],
+      "implementationAr": [
+        "الخطوة 1: توصيل المكونات على لوحة التجارب (Breadboard) وفق المخطط الكهربائي.",
+        "الخطوة 2: تثبيت حزمة ESP32 في بيئة Arduino IDE ورفع الكود البرمجي المرفق.",
+        "الخطوة 3: تشغيل خادم Node.js WebSocket وتعيين رموز الاتصال والمفاتيح السرية."
+      ],
+      "price": 149,
+      "durationAr": "7 أيام",
+      "durationEn": "7 Days",
+      "imageUrl": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=800",
+      "videoUrl": "https://www.youtube.com/embed/9XInbVka77w",
+      "projectFileUrl": "/downloads/cardiovision_ecg_v2.zip",
+      "rating": 4.9,
+      "universityAr": "جامعة دمشق",
+      "universityEn": "Damascus University",
+      "projectTypeAr": "مشروع تخرج عتادي برمجي متكامل",
+      "projectTypeEn": "Integrated Hardware & Software Graduation Project",
+      "language": "both"
+    },
+    {
+      "id": "myo-prosthetic-hand",
+      "titleEn": "Myoelectric Bionic Prosthetic Hand",
+      "titleAr": "اليد الاصطناعية الحيوية الذكية",
+      "category": "biomedical",
+      "descriptionEn": "A 3D-printed bionic hand controlled by muscle electrical activities (EMG), allowing multi-grip patterns for upper limb amputees.",
+      "descriptionAr": "يد اصطناعية مطبوعة ثلاثية الأبعاد يتم التحكم بها عبر النشاط العضلي الكهربائي (EMG)، مما يسمح بأنماط إمساك متعددة لمبتوري الأطراف العلوية.",
+      "detailsEn": "Using surface EMG electrodes placed on the forearm muscles, electrical impulses are amplified and processed. The microcontroller maps muscle contractions to specific grip styles (fist, pinch, point) using servo motors to actuate individual fingers.",
+      "detailsAr": "باستخدام أقطاب EMG السطحية الموضوعة على عضلات الساعد، يتم تضخيم النبضات الكهربائية ومعالجتها. يقوم المتحكم بربط انقباض العضلات بأنماط إمساك محددة (قبضة، قرص، إشارة) باستخدام محركات سيرفو لتحريك الأصابع بشكل فردي.",
+      "featuresEn": [
+        "Proportional speed control based on muscle contraction strength",
+        "3D printed lightweight design (less than 450g)",
+        "OLED screen indicating battery status and current active mode"
+      ],
+      "featuresAr": [
+        "تحكم تناسبي بالسرعة بناءً على شدة انقباض العضلة",
+        "تصميم خفيف الوزن مطبوع ثلاثي الأبعاد (أقل من 450 غرام)",
+        "شاشة OLED لعرض مستوى البطارية والوضع الفعال حالياً"
+      ],
+      "componentsEn": [
+        "Myoware EMG muscle sensor",
+        "Arduino Nano controller",
+        "5x SG90 Servo motors",
+        "3D-Printed PLA mechanical hand parts"
+      ],
+      "componentsAr": [
+        "حساس عضلات Myoware EMG",
+        "متحكم أردوينو نانو",
+        "5 محركات سيرفو SG90 عالية العزم",
+        "أجزاء يد ميكانيكية مطبوعة من مادة PLA"
+      ],
+      "softwareEn": [
+        "Arduino IDE",
+        "Proteus",
+        "SolidWorks",
+        "EasyEDA"
+      ],
+      "softwareAr": [
+        "بيئة Arduino IDE",
+        "برنامج Proteus للمحاكاة",
+        "برنامج SolidWorks للتصميم ثلاثي الأبعاد",
+        "برنامج EasyEDA للدارات المطبوعة"
+      ],
+      "diagramsEn": [
+        "MyoWare Output -> Arduino A0, GND->GND, VCC->5V",
+        "Servo Motors: Data pins connected to Arduino D3, D5, D6, D9, D10"
+      ],
+      "diagramsAr": [
+        "مخرج حساس MyoWare -> مدخل أردوينو A0، خط الأرضي->GND، خط التغذية->5V",
+        "محركات السيرفو: خطوط التحكم موصولة بالمنافذ D3, D5, D6, D9, D10"
+      ],
+      "outputsEn": [
+        "SolidWorks STL files",
+        "Arduino code",
+        "Proteus file",
+        "Full circuit schematics",
+        "65-page thesis document"
+      ],
+      "outputsAr": [
+        "ملفات تصميم اليد STL للطباعة ثلاثية الأبعاد",
+        "كود التحكم بالأردوينو C++",
+        "ملف محاكاة Proteus",
+        "المخطط الكهربائي",
+        "تقرير تخرج متكامل مكون من 65 صفحة"
+      ],
+      "implementationEn": [
+        "Step 1: Print all parts in PLA.",
+        "Step 2: Mount servos inside palm.",
+        "Step 3: Connect to Arduino, calibrate sensors."
+      ],
+      "implementationAr": [
+        "الخطوة 1: طباعة كافة الأجزاء ثلاثية الأبعاد.",
+        "الخطوة 2: تثبيت المحركات داخل كف اليد.",
+        "الخطوة 3: التوصيل بالأردوينو ومعايرة الحساسات."
+      ],
+      "price": 199,
+      "durationAr": "10 أيام",
+      "durationEn": "10 Days",
+      "imageUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+      "videoUrl": "https://www.youtube.com/embed/fS3oNen6UvY",
+      "projectFileUrl": "/downloads/myo_prosthetic_hand.zip",
+      "rating": 4.8,
+      "universityAr": "جامعة تشرين",
+      "universityEn": "Tishreen University",
+      "projectTypeAr": "مشروع تخرج ميكاترونكس وطبي",
+      "projectTypeEn": "Mechatronics & Biomedical Graduation Project",
+      "language": "both"
+    }
+  ],
+  "orders": [],
+  "consultations": [],
+  "notifications": [],
+  "favorites": [],
+  "reviews": [],
+  "messages": [
+    {
+      "id": "msg_383077d2",
+      "name": "يوسف غسان النجار",
+      "email": "y99286549@gmail.com",
+      "subject": "اريد تصميم مشروع ذراع روبوتية",
+      "message": "نشسميتشسيشسيهخشتيخسشتيسشخيهتسشخهيسشيسشتيخهسشي",
+      "isRead": false,
+      "createdAt": "2026-07-21T12:21:18.472Z"
+    },
+    {
+      "id": "msg_ab4438ab",
+      "name": "شي",
+      "email": "y99286549@gmail.com",
+      "subject": "يسش",
+      "message": "شيس",
+      "isRead": false,
+      "createdAt": "2026-07-21T12:22:05.480Z"
+    },
+    {
+      "id": "msg_a4ec06c3",
+      "name": "sadasd",
+      "email": "y99286549@gmail.com",
+      "subject": "adssadas",
+      "message": "adsadsadsadasd",
+      "isRead": false,
+      "createdAt": "2026-07-21T12:27:47.520Z"
+    },
+    {
+      "id": "msg_0da286a4",
+      "name": "شيسسشي",
+      "email": "y999999999@gmail.com",
+      "subject": "asdsad",
+      "message": "sdsad",
+      "isRead": false,
+      "createdAt": "2026-07-22T09:54:50.980Z"
+    }
+  ],
+  "visitorsCount": 365
+}

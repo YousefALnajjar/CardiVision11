@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioVision - 🚧 الموقع قيد التحديث</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #020617;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(30, 41, 59, 0.8);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --header-border: rgba(30, 41, 59, 0.6);
+      --msg-bg: rgba(15, 23, 42, 0.9);
+      --glow-1: rgba(244, 63, 94, 0.18);
+      --glow-2: rgba(99, 102, 241, 0.18);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(226, 232, 240, 0.9);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --header-border: rgba(226, 232, 240, 0.8);
+      --msg-bg: #ffffff;
+      --glow-1: rgba(244, 63, 94, 0.08);
+      --glow-2: rgba(99, 102, 241, 0.08);
+      --contact-lbl: #1f2937;
+      --contact-val: #4b5563;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; transition: background-color 0.3s, color 0.3s; }
+    body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; overflow-x: hidden; }
+    
+    .glow-1 { position: fixed; top: -100px; left: -100px; width: 450px; height: 450px; background: var(--glow-1); filter: blur(100px); border-radius: 50%; pointer-events: none; }
+    .glow-2 { position: fixed; bottom: -100px; right: -100px; width: 450px; height: 450px; background: var(--glow-2); filter: blur(100px); border-radius: 50%; pointer-events: none; }
+    
+    header { padding: 1.25rem 2rem; border-bottom: 1px solid var(--header-border); display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-icon { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, #f43f5e, #4f46e5); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.4); color: white; }
+    .brand-title { font-weight: 900; font-size: 1.25rem; background: linear-gradient(to right, #f43f5e, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .badge { background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); color: #f43f5e; font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; margin-right: 0.5rem; }
+    
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .icon-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main); padding: 0.5rem 0.9rem; border-radius: 12px; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; }
+    .icon-btn:hover { border-color: #f43f5e; }
+
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem 1rem; }
+    .card { max-width: 680px; width: 100%; text-align: center; margin: auto; }
+    .icon-container { width: 90px; height: 90px; border-radius: 28px; background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(79, 70, 229, 0.1)); border: 2px solid rgba(244, 63, 94, 0.3); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem; box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.3); animation: pulse 2s infinite; }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    h1 { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--text-main); }
+    .sub { color: #f43f5e; font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; }
+    
+    .msg-box { background: var(--msg-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem; margin-bottom: 2rem; line-height: 1.8; color: var(--text-main); text-align: right; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); }
+    [dir="ltr"] .msg-box { text-align: left; }
+    .msg-box p { font-size: 1rem; margin-bottom: 1rem; font-weight: 600; }
+    .thanks { border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; padding-top: 1rem; }
+    
+    .btn-retry { background: linear-gradient(to right, #f43f5e, #4f46e5); color: white; border: none; padding: 1rem 2.5rem; font-size: 1rem; font-weight: 800; border-radius: 16px; cursor: pointer; transition: all 0.2s; box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.4); display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .btn-retry:hover { opacity: 0.95; transform: translateY(-2px); }
+    
+    .contacts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .contact-item { background: var(--msg-bg); border: 1px solid var(--card-border); padding: 1.25rem; border-radius: 16px; text-align: center; width: 100%; max-width: 24rem; margin-left: auto; margin-right: auto; }
+    .contact-lbl { color: var(--contact-lbl, var(--text-main)); font-size: 0.85rem; font-weight: 800; margin-bottom: 0; display: block; }
+    .contact-val { color: var(--contact-val, var(--text-muted)); font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+    .contact-val:hover { color: #f43f5e; }
+    
+    /* Flexbox utilities */
+    .flex { display: flex; }
+    .flex-row { flex-direction: row; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: 0.5rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    
+    .icon-brand { color: #f43f5e; }
+    .copy-btn { background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.2); color: #f43f5e; border-radius: 6px; padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .copy-btn:hover { background: rgba(244, 63, 94, 0.2); transform: scale(1.05); }
+
+    footer { padding: 1.5rem; border-top: 1px solid var(--header-border); text-align: center; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; }
+
+    .admin-gate-btn { margin-top: 1.5rem; background: transparent; border: 1px dashed var(--card-border); color: var(--text-muted); padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
+    .admin-gate-btn:hover { border-color: #f43f5e; color: #f43f5e; }
+
+    /* Responsive Mobile Adjustments */
+    @media (max-width: 640px) {
+      header { flex-direction: column; gap: 1rem; padding: 1rem; text-align: center; }
+      .brand { flex-direction: column; align-items: center; text-align: center; }
+      h1 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.75rem; }
+      .sub { font-size: 1rem; margin-bottom: 1rem; }
+      .msg-box { padding: 1.25rem; font-size: 0.95rem; text-align: center; margin-bottom: 1.5rem; }
+      .btn-retry { padding: 0.875rem 1.5rem; width: 100%; justify-content: center; font-size: 0.95rem; }
+      
+      .contacts { grid-template-columns: 1fr; gap: 1rem; margin-top: 1.5rem; }
+      .contact-item { padding: 1.25rem !important; width: 100% !important; }
+      .contact-item > div { flex-direction: column; text-align: center; gap: 0.5rem !important; }
+      .contact-lbl { text-align: center; }
+      .contact-val { font-size: 1.05rem; }
+      .logo-container-main { width: 100px !important; height: 100px !important; margin-bottom: 1rem !important; }
+      .badge-live { font-size: 0.65rem !important; padding: 0.25rem 0.6rem !important; }
+      .admin-gate-btn { padding: 0.75rem 1rem; font-size: 0.85rem; width: 100%; display: block; margin-top: 2rem; }
+      footer { padding: 1rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <header>
+    <a href="/" class="brand">
+      <div class="logo-icon" style="background: #ffffff; padding: 2px; overflow: hidden; border: 2px solid #f43f5e;">
+        <img src="/logo.png" alt="CardioVision Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;" />
+      </div>
+      <div>
+        <div style="display: flex; align-items: center;">
+          <span class="brand-title">CardioVision</span>
+          <span class="badge" id="badgeText">وضع الصيانة</span>
+        </div>
+        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;" id="subBrand">منصة الهندسة الطبية والحلول التكنولوجية</span>
+      </div>
+    </a>
+
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleLanguage()">
+        <span id="langBtn">English 🌐</span>
+      </button>
+      <button class="icon-btn" onclick="toggleTheme()">
+        <span id="themeBtn">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div style="position: relative; display: inline-block; margin-bottom: 1.5rem;">
+        <div class="logo-container-main" style="width: 140px; height: 140px; border-radius: 30px; background: #ffffff; padding: 8px; border: 4px solid rgba(244, 63, 94, 0.4); box-shadow: 0 20px 40px -10px rgba(244, 63, 94, 0.4); margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+          <img src="/logo.png" alt="CardioVision Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;" />
+        </div>
+        <span class="badge-live" style="position: absolute; bottom: -8px; right: -8px; background: #f59e0b; color: #020617; font-size: 0.75rem; font-weight: 900; padding: 0.35rem 0.85rem; border-radius: 999px; border: 2px solid #020617; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          🚧 تحديث مباشر
+        </span>
+      </div>
+
+      <h1 id="mainTitle">الموقع قيد التحديث والصيانة</h1>
+      <div class="sub" id="subTitle">مرحباً بكم في CardioVision</div>
+
+      <div class="msg-box">
+        <p id="mainReason">نعمل حالياً على إجراء تحديثات وتحسينات لنوفر لكم تجربة أفضل وأكثر أماناً.</p>
+        <div class="thanks" id="thanksText">
+          نعتذر عن الإزعاج ونرجو المحاولة مرة أخرى لاحقاً. <strong style="color: #f43f5e;">شكراً لتفهمكم.</strong>
+        </div>
+      </div>
+
+      <button class="btn-retry" onclick="window.location.reload();">
+        <span id="retryBtnText">🔄 تحديث الصفحة (Retry)</span>
+      </button>
+
+      <div class="contacts">
+        <div class="contact-item" style="background-color: #ffffff; padding: 15px; border-radius: 8px; width: 91.666667%; max-width: 28rem; margin: 0 auto; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; margin-bottom: 10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="contact-lbl" id="phoneLbl" style="color: #000000; font-weight: bold; margin: 0; padding: 0;">رقم التواصل والواتساب:</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center;">
+            <a href="tel:0964809575" class="contact-val" style="color: #000000; font-weight: bold; text-decoration: none; font-size: 1.1rem;">0964809575</a>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText('0964809575'); alert(currentLang === 'ar' ? 'تم نسخ الرقم' : 'Phone copied');" title="Copy" style="flex-shrink: 0; background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.2); color: #f43f5e; border-radius: 6px; padding: 6px; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div class="contact-item" style="background-color: #ffffff; padding: 15px; border-radius: 8px; width: 91.666667%; max-width: 28rem; margin: 0 auto; box-sizing: border-box; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; margin-bottom: 10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span class="contact-lbl" id="emailLbl" style="color: #000000; font-weight: bold; margin: 0; padding: 0;">البريد الإلكتروني الرسمي:</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center;">
+            <a href="mailto:admin@cardiovision.com" class="contact-val" style="color: #000000; font-weight: bold; text-decoration: none; font-size: 1.1rem; word-break: break-all;">admin@cardiovision.com</a>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText('admin@cardiovision.com'); alert(currentLang === 'ar' ? 'تم نسخ البريد' : 'Email copied');" title="Copy" style="flex-shrink: 0; background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.2); color: #f43f5e; border-radius: 6px; padding: 6px; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+      <button class="admin-gate-btn" onclick="window.location.href='/'">
+        🔐 دخول المسؤولين (Admin Gate)
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    CardioVision System Security Protocol © 2026 - جميع الحقوق محفوظة لشركة CardioVision
+  </footer>
+
+  <script>
+    let currentLang = 'ar';
+    let currentTheme = 'dark';
+
+    const translations = {
+      ar: {
+        badge: "وضع الصيانة",
+        subBrand: "منصة الهندسة الطبية والحلول التكنولوجية",
+        mainTitle: "الموقع قيد التحديث والصيانة",
+        subTitle: "مرحباً بكم في CardioVision",
+        defaultReason: "نعمل حالياً على إجراء تحديثات وتحسينات لنوفر لكم تجربة أفضل وأكثر أماناً.",
+        thanks: "نعتذر عن الإزعاج ونرجو المحاولة مرة أخرى لاحقاً. <strong style=\"color: #f43f5e;\">شكراً لتفهمكم.</strong>",
+        retryBtn: "🔄 تحديث الصفحة (Retry)",
+        phoneLbl: "رقم التواصل والواتساب:",
+        emailLbl: "البريد الإلكتروني الرسمي:",
+        adminGate: "🔐 دخول المسؤولين (Admin Gate)",
+        langBtn: "English 🌐"
+      },
+      en: {
+        badge: "MAINTENANCE MODE",
+        subBrand: "Medical Engineering & Technology Solutions Platform",
+        mainTitle: "Website Under Maintenance & Updates",
+        subTitle: "Welcome to CardioVision",
+        defaultReason: "We are currently carrying out updates and enhancements to bring you a safer and better experience.",
+        thanks: "We apologize for any inconvenience. Please try again later. <strong style=\"color: #f43f5e;\">Thank you for your understanding.</strong>",
+        retryBtn: "🔄 Refresh Page (Retry)",
+        phoneLbl: "Support Phone & WhatsApp:",
+        emailLbl: "Official Contact Email:",
+        adminGate: "🔐 Admin Portal (Admin Gate)",
+        langBtn: "العربية 🌐"
+      }
+    };
+
+    function updateDOM() {
+      const t = translations[currentLang];
+      document.getElementById('badgeText').innerText = t.badge;
+      document.getElementById('subBrand').innerText = t.subBrand;
+      document.getElementById('mainTitle').innerText = t.mainTitle;
+      document.getElementById('subTitle').innerText = t.subTitle;
+      document.getElementById('thanksText').innerHTML = t.thanks;
+      document.getElementById('retryBtnText').innerText = t.retryBtn;
+      document.getElementById('phoneLbl').innerText = t.phoneLbl;
+      document.getElementById('emailLbl').innerText = t.emailLbl;
+      document.getElementById('langBtn').innerText = t.langBtn;
+
+      document.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = currentLang;
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      updateDOM();
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', currentTheme);
+      document.getElementById('themeBtn').innerText = currentTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Auto check if server has returned to normal status
+    async function checkServerStatus() {
+      try {
+        const res = await fetch('/api/maintenance-status?t=' + Date.now(), { cache: 'no-store' });
+        const data = await res.json();
+        if (data.success) {
+          if (!data.maintenanceMode) {
+            window.location.href = '/';
+          } else if (data.reason) {
+            document.getElementById('mainReason').innerText = data.reason;
+          }
+        }
+      } catch (e) {
+        // Static page continues running smoothly if server is offline
+      }
+    }
+
+    checkServerStatus();
+    setInterval(checkServerStatus, 5000);
+  </script>
+</body>
+</html>
